@@ -17,9 +17,13 @@ function App() {
 
       xrSession.current = session
     } catch (err) {
-      alert("Unable to setup AR environment: " + err.message)
+      if (err instanceof Error) {
+        alert("Unable to setup AR environment: " + err.message)
 
-      console.log(err)
+        console.log(err)
+      } else {
+        console.log("Unexpected error")
+      }
     }
   }
 
